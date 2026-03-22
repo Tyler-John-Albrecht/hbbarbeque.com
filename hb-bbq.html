@@ -218,7 +218,7 @@
 
       <!-- Desktop Links -->
       <ul class="hidden md:flex items-center gap-8 font-body text-[13px] text-ash font-500 tracking-wide">
-        <li><a href="#menu" class="hover:text-gold transition-colors duration-300">Menu</a></li>
+        <li><a href="#" onclick="openMenuModal(); return false;" class="hover:text-gold transition-colors duration-300">Menu</a></li>
         <li><a href="#story" class="hover:text-gold transition-colors duration-300">Our Story</a></li>
         <li><a href="#services" class="hover:text-gold transition-colors duration-300">Services</a></li>
         <li><a href="#footer" class="hover:text-gold transition-colors duration-300">Contact</a></li>
@@ -241,7 +241,7 @@
     <!-- Mobile Menu Drawer -->
     <div id="mobileMenu" class="md:hidden overflow-hidden max-h-0 transition-[max-height] duration-500 ease-in-out bg-slate border-t border-line_dark/40">
       <div class="flex flex-col gap-4 px-6 py-6 font-body text-base text-ivory">
-        <a href="#menu" class="hover:text-gold transition-colors duration-300">Menu</a>
+        <a href="#" onclick="openMenuModal(); return false;" class="hover:text-gold transition-colors duration-300">Menu</a>
         <a href="#story" class="hover:text-gold transition-colors duration-300">Our Story</a>
         <a href="#services" class="hover:text-gold transition-colors duration-300">Services</a>
         <a href="#footer" class="hover:text-gold transition-colors duration-300">Contact</a>
@@ -284,7 +284,7 @@
             Order Online
             <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
           </a>
-          <a href="#menu" class="btn-ghost inline-flex items-center gap-2 text-sm font-600 text-ivory border border-ivory/20 px-7 py-3.5 rounded-full tracking-wide">
+          <a href="#" onclick="openMenuModal(); return false;" class="btn-ghost inline-flex items-center gap-2 text-sm font-600 text-ivory border border-ivory/20 px-7 py-3.5 rounded-full tracking-wide">
             View Menu
           </a>
         </div>
@@ -583,6 +583,104 @@
 
 
   <!-- ═══════════════════════════════════════════════
+       MENU MODAL OVERLAY
+  ═══════════════════════════════════════════════ -->
+  <div id="menuModal" class="fixed inset-0 z-[100] flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-400" style="transition: opacity 0.4s cubic-bezier(.4,0,.2,1);">
+
+    <!-- Backdrop -->
+    <div id="menuBackdrop" class="absolute inset-0 bg-slate/90" style="backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);"></div>
+
+    <!-- Modal Container -->
+    <div id="menuContainer" class="relative w-[94%] max-w-2xl max-h-[88vh] overflow-y-auto bg-slate_m border border-line_dark rounded-3xl shadow-[0_40px_120px_-20px_rgba(0,0,0,.7)] mx-auto translate-y-6" style="transition: transform 0.4s cubic-bezier(.4,0,.2,1); scrollbar-width: thin; scrollbar-color: #2E2E2E #1A1A1A;">
+
+      <!-- Close Button — sticky top right -->
+      <button id="menuModalClose" class="sticky top-4 float-right mr-4 mt-4 z-10 w-10 h-10 rounded-full bg-white/[.06] hover:bg-gold hover:text-slate flex items-center justify-center text-ivory transition-colors duration-300" aria-label="Close menu">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+
+      <!-- Modal Content -->
+      <div class="px-8 sm:px-12 pt-10 pb-12">
+
+        <!-- Title -->
+        <div class="text-center mb-10">
+          <p class="pill text-[11px] font-body font-600 text-gold uppercase tracking-[.2em] mb-3">H&amp;B BBQ</p>
+          <h2 class="font-display font-800 text-3xl sm:text-4xl text-ivory tracking-tight">The Pit Menu</h2>
+          <p class="font-body font-400 text-ash text-sm mt-2">Low &amp; Slow&ensp;|&ensp;Post Oak &amp; Pecan Smoke</p>
+          <div class="w-12 h-[2px] bg-gold rounded-full mx-auto mt-5"></div>
+        </div>
+
+        <!-- ── By The Pound ── -->
+        <div class="mb-10">
+          <h3 class="font-display font-700 text-xl text-gold mb-1">By The Pound</h3>
+          <p class="font-body font-400 text-ash text-xs italic mb-5">Our meats are seasoned simply with Kosher salt and 16-mesh black pepper</p>
+
+          <!-- Prime Brisket -->
+          <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 py-3 border-b border-line_dark">
+            <span class="font-body font-600 text-ivory text-[15px]">Prime Brisket</span>
+            <span class="font-body font-400 text-gold text-sm">Half Pound <span class="font-600">$14.50</span>&ensp;|&ensp;One Pound <span class="font-600">$25.00</span></span>
+          </div>
+
+          <!-- Angus Choice Beef Ribs -->
+          <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 py-3 border-b border-line_dark">
+            <div>
+              <span class="font-body font-600 text-ivory text-[15px]">Angus Choice Beef Ribs</span>
+              <p class="font-body font-400 text-ash text-xs mt-0.5">Sold by the pound only due to their size</p>
+            </div>
+            <span class="font-body font-400 text-gold text-sm shrink-0">One Pound <span class="font-600">$25.00</span></span>
+          </div>
+
+          <!-- Pork Spare Ribs -->
+          <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 py-3 border-b border-line_dark">
+            <span class="font-body font-600 text-ivory text-[15px]">Pork Spare Ribs</span>
+            <span class="font-body font-400 text-gold text-sm">Half Pound <span class="font-600">$12.00</span>&ensp;|&ensp;One Pound <span class="font-600">$22.00</span></span>
+          </div>
+        </div>
+
+        <!-- ── Barbecue Plates ── -->
+        <div class="mb-10">
+          <h3 class="font-display font-700 text-xl text-gold mb-1">Barbecue Plates</h3>
+          <p class="font-body font-400 text-ash text-xs italic mb-5">Served with your choice of two signature sides and sliced bread</p>
+
+          <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 py-3 border-b border-line_dark">
+            <span class="font-body font-600 text-ivory text-[15px]">Prime Brisket Plate</span>
+            <span class="font-display font-700 text-gold text-sm">$19.00</span>
+          </div>
+
+          <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 py-3 border-b border-line_dark">
+            <span class="font-body font-600 text-ivory text-[15px]">Pork Spare Rib Plate</span>
+            <span class="font-display font-700 text-gold text-sm">$16.00</span>
+          </div>
+
+          <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 py-3 border-b border-line_dark">
+            <span class="font-body font-600 text-ivory text-[15px]">The Two-Meat Combo <span class="font-400 text-ash text-xs">(Brisket &amp; Spare Ribs)</span></span>
+            <span class="font-display font-700 text-gold text-sm">$24.00</span>
+          </div>
+        </div>
+
+        <!-- ── Signature Sides ── -->
+        <div class="mb-12">
+          <h3 class="font-display font-700 text-xl text-gold mb-4">Signature Sides</h3>
+          <div class="flex flex-wrap gap-3">
+            <span class="font-body font-500 text-ivory text-sm bg-white/[.04] border border-line_dark px-4 py-2 rounded-full">Creamy Mac &amp; Cheese</span>
+            <span class="font-body font-500 text-ivory text-sm bg-white/[.04] border border-line_dark px-4 py-2 rounded-full">Slow-Cooked BBQ Beans</span>
+            <span class="font-body font-500 text-ivory text-sm bg-white/[.04] border border-line_dark px-4 py-2 rounded-full">Classic Potato Salad</span>
+            <span class="font-body font-500 text-ivory text-sm bg-white/[.04] border border-line_dark px-4 py-2 rounded-full">Extra Sliced Bread</span>
+          </div>
+        </div>
+
+        <!-- ── Order Now CTA ── -->
+        <div class="text-center">
+          <a href="tel:+19033554583" class="btn-primary inline-flex items-center justify-center gap-2 bg-gold text-slate text-sm font-600 px-10 py-4 rounded-full tracking-wide w-full sm:w-auto">
+            Order Now&ensp;—&ensp;(903) 355-4583
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════════
        FOOTER
   ═══════════════════════════════════════════════ -->
   <footer id="footer" class="py-20 lg:py-28 bg-charcoal text-white/70 border-t border-line_dark">
@@ -745,11 +843,40 @@
     /* ── 7. Section reveals ── */
     reveal('.menu-reveal', { y: 30, stagger: 0.12 });
     reveal('.meat-card', { y: 50, stagger: 0.15 });
-    reveal('.story-reveal', { y: 40, stagger: 0.1 });
-    reveal('.quote-reveal', { y: 30, scale: 0.98 });
+    reveal('.story-reveal', { y: 40, stagger: 0.12 });
+    reveal('.quote-reveal', { y: 30, scale: 0.97 });
     reveal('.service-reveal', { y: 30, stagger: 0.1 });
-    reveal('.service-card', { y: 50, stagger: 0.15 });
-  </script>
+    reveal('.service-card', { y: 50, stagger: 0.15, start: 'top 90%' });
 
+    /* ── 8. Menu Modal Logic ── */
+    const menuModal = document.getElementById('menuModal');
+    const menuContainer = document.getElementById('menuContainer');
+    const menuBackdrop = document.getElementById('menuBackdrop');
+    const menuModalClose = document.getElementById('menuModalClose');
+
+    function openMenuModal() {
+      menuModal.classList.remove('pointer-events-none');
+      menuModal.style.opacity = '1';
+      menuContainer.style.transform = 'translateY(0)';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenuModal() {
+      menuModal.style.opacity = '0';
+      menuContainer.style.transform = 'translateY(24px)';
+      document.body.style.overflow = '';
+      setTimeout(() => {
+        menuModal.classList.add('pointer-events-none');
+      }, 400);
+    }
+
+    menuModalClose.addEventListener('click', closeMenuModal);
+    menuBackdrop.addEventListener('click', closeMenuModal);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !menuModal.classList.contains('pointer-events-none')) {
+        closeMenuModal();
+      }
+    });
+  </script>
 </body>
 </html>
