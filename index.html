@@ -437,8 +437,45 @@
 
 
   <!-- ═══════════════════════════════════════════════
-       THE STORY / KENYON RAILEY
+       CTA — ORDER NOW
   ═══════════════════════════════════════════════ -->
+  <section class="py-14 md:py-16 bg-slate">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 text-center">
+      <button id="orderCtaBtn" class="btn-primary inline-flex items-center gap-3 bg-gold text-slate text-xl md:text-2xl font-display font-700 px-10 md:px-14 py-4 md:py-5 rounded-full tracking-wide">
+        Stop Drooling, Order Now!
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 md:w-6 md:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+      </button>
+    </div>
+  </section>
+
+
+  <div class="section-rule max-w-7xl mx-auto"></div>
+
+
+  <!-- ═══════════════════════════════════════════════
+       ORDER MODAL OVERLAY
+  ═══════════════════════════════════════════════ -->
+  <div id="orderModal" class="fixed inset-0 z-[100] flex items-center justify-center opacity-0 pointer-events-none" style="transition: opacity 0.4s cubic-bezier(.4,0,.2,1);">
+    <div id="orderBackdrop" class="absolute inset-0 bg-slate/90" style="backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);"></div>
+    <div id="orderContainer" class="relative w-[90%] max-w-md bg-slate_m border border-line_dark rounded-3xl shadow-[0_40px_120px_-20px_rgba(0,0,0,.7)] mx-auto p-10 sm:p-12 text-center translate-y-6" style="transition: transform 0.4s cubic-bezier(.4,0,.2,1);">
+      <!-- Close -->
+      <button id="orderModalClose" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/[.06] hover:bg-gold hover:text-slate flex items-center justify-center text-ivory transition-colors duration-300" aria-label="Close">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+      <!-- Content -->
+      <div class="flex flex-col items-center gap-6">
+        <div class="w-16 h-16 rounded-full bg-gold/10 flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1.001A3.75 3.75 0 0012 18z"/></svg>
+        </div>
+        <h2 class="font-display font-800 text-3xl sm:text-4xl text-ivory tracking-tight">Ready for BBQ?</h2>
+        <p class="font-body font-400 text-ash text-base leading-relaxed">Call now to place your order. Fresh off the pit, ready when you&nbsp;arrive.</p>
+        <a href="tel:+19033554583" class="btn-primary inline-flex items-center justify-center gap-2 bg-gold text-slate text-lg font-600 px-10 py-4 rounded-full tracking-wide w-full">
+          Call (903) 355-4583
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
   <section id="story" class="py-28 lg:py-40 bg-charcoal">
     <div class="max-w-7xl mx-auto px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center">
 
@@ -875,6 +912,38 @@
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && !menuModal.classList.contains('pointer-events-none')) {
         closeMenuModal();
+      }
+    });
+
+    /* ── 9. Order Modal Logic ── */
+    const orderModal = document.getElementById('orderModal');
+    const orderContainer = document.getElementById('orderContainer');
+    const orderBackdrop = document.getElementById('orderBackdrop');
+    const orderModalClose = document.getElementById('orderModalClose');
+    const orderCtaBtn = document.getElementById('orderCtaBtn');
+
+    function openOrderModal() {
+      orderModal.classList.remove('pointer-events-none');
+      orderModal.style.opacity = '1';
+      orderContainer.style.transform = 'translateY(0)';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeOrderModal() {
+      orderModal.style.opacity = '0';
+      orderContainer.style.transform = 'translateY(24px)';
+      document.body.style.overflow = '';
+      setTimeout(() => {
+        orderModal.classList.add('pointer-events-none');
+      }, 400);
+    }
+
+    orderCtaBtn.addEventListener('click', openOrderModal);
+    orderModalClose.addEventListener('click', closeOrderModal);
+    orderBackdrop.addEventListener('click', closeOrderModal);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !orderModal.classList.contains('pointer-events-none')) {
+        closeOrderModal();
       }
     });
   </script>
