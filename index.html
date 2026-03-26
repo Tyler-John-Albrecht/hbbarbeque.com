@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -737,7 +738,7 @@
         <div class="flex flex-col gap-3">
           <h4 class="font-display font-700 text-sm text-gold tracking-wide">Visit</h4>
           <p class="font-body text-sm leading-relaxed text-white/50">
-            &nbsp;
+            105 N 5th Street<br/>Wylie, TX
           </p>
           <p class="font-body text-sm text-white/50">
             Fri – Sun&ensp;11 AM – 5 PM
@@ -748,7 +749,7 @@
         <div class="flex flex-col gap-3">
           <h4 class="font-display font-700 text-sm text-gold tracking-wide">Contact</h4>
           <a href="tel:+19033554583" class="font-body text-sm text-white/50 hover:text-gold transition-colors duration-300">(903) 355-4583</a>
-          <a href="/cdn-cgi/l/email-protection#39525c574056574b5850555c400a0c01795e54585055175a5654" class="font-body text-sm text-white/50 hover:text-gold transition-colors duration-300"><span class="__cf_email__" data-cfemail="a0cbc5ced9cfced2c1c9ccc5d9939598e0c7cdc1c9cc8ec3cfcd">[email&#160;protected]</span></a>
+          <a href="mailto:kenyonrailey358@gmail.com" class="font-body text-sm text-white/50 hover:text-gold transition-colors duration-300">kenyonrailey358@gmail.com</a>
         </div>
 
         <!-- Social -->
@@ -787,7 +788,7 @@
   <!-- ═══════════════════════════════════════════════
        GSAP ANIMATIONS
   ═══════════════════════════════════════════════ -->
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  <script>
     gsap.registerPlugin(ScrollTrigger);
 
     /* ── 1. Nav shadow on scroll ── */
@@ -940,4 +941,12 @@
 
     orderCtaBtn.addEventListener('click', openOrderModal);
     orderModalClose.addEventListener('click', closeOrderModal);
-    orderBackdro
+    orderBackdrop.addEventListener('click', closeOrderModal);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !orderModal.classList.contains('pointer-events-none')) {
+        closeOrderModal();
+      }
+    });
+  </script>
+</body>
+</html>
