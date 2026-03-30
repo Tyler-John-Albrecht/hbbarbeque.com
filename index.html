@@ -221,6 +221,7 @@
         <li><a href="#" onclick="openMenuModal(); return false;" class="hover:text-gold transition-colors duration-300">Menu</a></li>
         <li><a href="#story" class="hover:text-gold transition-colors duration-300">Our Story</a></li>
         <li><a href="#services" class="hover:text-gold transition-colors duration-300">Services</a></li>
+        <li><a href="#faq" class="hover:text-gold transition-colors duration-300">FAQ</a></li>
         <li><a href="#footer" class="hover:text-gold transition-colors duration-300">Contact</a></li>
       </ul>
 
@@ -243,6 +244,7 @@
         <a href="#" onclick="openMenuModal(); return false;" class="hover:text-gold transition-colors duration-300">Menu</a>
         <a href="#story" class="hover:text-gold transition-colors duration-300">Our Story</a>
         <a href="#services" class="hover:text-gold transition-colors duration-300">Services</a>
+        <a href="#faq" class="hover:text-gold transition-colors duration-300">FAQ</a>
         <a href="#footer" class="hover:text-gold transition-colors duration-300">Contact</a>
         <a onclick="openMenuModal(); return false;" class="mt-2 btn-primary inline-flex items-center justify-center gap-2 bg-gold text-slate text-sm font-600 px-5 py-3 rounded-full cursor-pointer">
           Order Now
@@ -474,6 +476,8 @@
       </div>
     </div>
   </div>
+  <div class="section-rule max-w-7xl mx-auto"></div>
+
   <section id="story" class="py-28 lg:py-40 bg-charcoal">
     <div class="max-w-7xl mx-auto px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center">
 
@@ -561,21 +565,25 @@
       <!-- Cards Grid -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 
-        <!-- Card: Nationwide Shipping -->
-        <div class="service-card card-hover bg-slate_m rounded-3xl p-8 lg:p-10 border border-line_dark flex flex-col gap-5">
-          <div class="icon-ring w-14 h-14 rounded-2xl bg-gold/[.08] flex items-center justify-center">
+        <!-- Card: Nationwide Shipping (Coming Soon) -->
+        <div class="service-card card-hover bg-slate_m rounded-3xl p-8 lg:p-10 border border-line_dark flex flex-col gap-5 relative overflow-hidden">
+          <!-- Coming Soon ribbon -->
+          <div class="absolute top-4 right-4">
+            <span class="pill text-[10px] font-body font-600 text-gold uppercase bg-gold/[.10] px-3 py-1 rounded-full border border-gold/20 tracking-widest">Coming Soon</span>
+          </div>
+          <div class="icon-ring w-14 h-14 rounded-2xl bg-gold/[.08] flex items-center justify-center opacity-60">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gold transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
               <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0H21M3.375 14.25V3.375a1.125 1.125 0 011.125-1.125h9.75a1.125 1.125 0 011.125 1.125v7.875m-12 3.75h12m0 0V14.25m0 0h2.25a1.125 1.125 0 011.058.745l1.867 5.592M21 14.25H18"/>
             </svg>
           </div>
           <h3 class="font-display font-700 text-xl text-ivory">Nationwide Shipping</h3>
           <p class="font-body font-400 text-ash text-[15px] leading-relaxed flex-1">
-            Every cut is smoked to perfection, vacuum-sealed, and packed in an insulated box with cool packs — shipped with full reheating instructions so it tastes just like it came straight off the pit.
+            We're working on bringing H&amp;B BBQ straight to your door. Nationwide shipping is coming soon — slow-smoked, vacuum-sealed, and packed to arrive tasting just like it came off the pit.
           </p>
-          <a href="#" class="inline-flex items-center gap-2 font-body font-600 text-sm text-gold hover:text-gold_l transition-colors duration-300 mt-auto">
-            Ship to Me
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-          </a>
+          <span class="inline-flex items-center gap-2 font-body font-600 text-sm text-ash mt-auto cursor-default select-none">
+            Launching Soon
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </span>
         </div>
 
         <!-- Card: Book Catering -->
@@ -718,6 +726,140 @@
   <!-- ═══════════════════════════════════════════════
        FOOTER
   ═══════════════════════════════════════════════ -->
+  <!-- ═══════════════════════════════════════════════
+       FAQ SECTION
+  ═══════════════════════════════════════════════ -->
+  <section id="faq" class="py-28 lg:py-40 bg-slate_m border-y border-line_dark">
+    <div class="max-w-4xl mx-auto px-6 lg:px-10">
+
+      <!-- Section Header -->
+      <div class="text-center mb-16 lg:mb-20">
+        <p class="faq-reveal pill text-[11px] font-body font-600 text-gold uppercase tracking-[.2em] mb-4">Got Questions?</p>
+        <h2 class="faq-reveal font-display font-800 text-4xl sm:text-5xl lg:text-6xl text-ivory tracking-tight">Frequently Asked</h2>
+      </div>
+
+      <!-- FAQ Items -->
+      <div class="faq-list flex flex-col gap-3">
+
+        <!-- Q1 -->
+        <div class="faq-item border border-line_dark rounded-2xl overflow-hidden bg-slate/60">
+          <button class="faq-trigger w-full flex items-center justify-between gap-4 px-7 py-5 text-left" aria-expanded="false">
+            <span class="font-display font-600 text-[17px] text-ivory">When are you open?</span>
+            <span class="faq-icon shrink-0 w-8 h-8 rounded-full bg-gold/[.08] border border-gold/20 flex items-center justify-center transition-transform duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            </span>
+          </button>
+          <div class="faq-answer max-h-0 overflow-hidden transition-[max-height] duration-500 ease-in-out">
+            <p class="font-body font-400 text-ash text-[15px] leading-relaxed px-7 pb-6">
+              We're open <strong class="text-ivory font-600">Friday through Sunday, 11 AM – 5 PM</strong>, or until we sell out — which happens often. We recommend calling ahead to confirm availability, especially for beef ribs.
+            </p>
+          </div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="faq-item border border-line_dark rounded-2xl overflow-hidden bg-slate/60">
+          <button class="faq-trigger w-full flex items-center justify-between gap-4 px-7 py-5 text-left" aria-expanded="false">
+            <span class="font-display font-600 text-[17px] text-ivory">Do you take reservations or pre-orders?</span>
+            <span class="faq-icon shrink-0 w-8 h-8 rounded-full bg-gold/[.08] border border-gold/20 flex items-center justify-center transition-transform duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            </span>
+          </button>
+          <div class="faq-answer max-h-0 overflow-hidden transition-[max-height] duration-500 ease-in-out">
+            <p class="font-body font-400 text-ash text-[15px] leading-relaxed px-7 pb-6">
+              Yes — and we highly recommend it, especially for beef ribs. Give us a call at <a href="tel:+19033554583" class="text-gold hover:text-gold_l transition-colors duration-200 font-600">(903) 355-4583</a> to place your order ahead of time so we can make sure we have your cut ready.
+            </p>
+          </div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="faq-item border border-line_dark rounded-2xl overflow-hidden bg-slate/60">
+          <button class="faq-trigger w-full flex items-center justify-between gap-4 px-7 py-5 text-left" aria-expanded="false">
+            <span class="font-display font-600 text-[17px] text-ivory">Where are you located?</span>
+            <span class="faq-icon shrink-0 w-8 h-8 rounded-full bg-gold/[.08] border border-gold/20 flex items-center justify-center transition-transform duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            </span>
+          </button>
+          <div class="faq-answer max-h-0 overflow-hidden transition-[max-height] duration-500 ease-in-out">
+            <p class="font-body font-400 text-ash text-[15px] leading-relaxed px-7 pb-6">
+              We're based in <strong class="text-ivory font-600">Wylie, Texas</strong>. Follow us on social or give us a call for our current service location — we occasionally pop up at events and markets around the DFW area.
+            </p>
+          </div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="faq-item border border-line_dark rounded-2xl overflow-hidden bg-slate/60">
+          <button class="faq-trigger w-full flex items-center justify-between gap-4 px-7 py-5 text-left" aria-expanded="false">
+            <span class="font-display font-600 text-[17px] text-ivory">What wood do you smoke with?</span>
+            <span class="faq-icon shrink-0 w-8 h-8 rounded-full bg-gold/[.08] border border-gold/20 flex items-center justify-center transition-transform duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            </span>
+          </button>
+          <div class="faq-answer max-h-0 overflow-hidden transition-[max-height] duration-500 ease-in-out">
+            <p class="font-body font-400 text-ash text-[15px] leading-relaxed px-7 pb-6">
+              We use <strong class="text-ivory font-600">Post Oak and Pecan</strong> — the foundation of authentic Central Texas BBQ. Post Oak burns clean and steady, giving the meat a balanced smoke ring. Pecan adds a hint of sweetness and depth. Kenyon splits every log by hand.
+            </p>
+          </div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="faq-item border border-line_dark rounded-2xl overflow-hidden bg-slate/60">
+          <button class="faq-trigger w-full flex items-center justify-between gap-4 px-7 py-5 text-left" aria-expanded="false">
+            <span class="font-display font-600 text-[17px] text-ivory">Do you offer catering?</span>
+            <span class="faq-icon shrink-0 w-8 h-8 rounded-full bg-gold/[.08] border border-gold/20 flex items-center justify-center transition-transform duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            </span>
+          </button>
+          <div class="faq-answer max-h-0 overflow-hidden transition-[max-height] duration-500 ease-in-out">
+            <p class="font-body font-400 text-ash text-[15px] leading-relaxed px-7 pb-6">
+              Absolutely. We cater private events, weddings, corporate gatherings, and more. Kenyon brings the pit and the passion directly to your event. Call us at <a href="tel:+19033554583" class="text-gold hover:text-gold_l transition-colors duration-200 font-600">(903) 355-4583</a> or reach out through our contact info below to get a quote.
+            </p>
+          </div>
+        </div>
+
+        <!-- Q6 -->
+        <div class="faq-item border border-line_dark rounded-2xl overflow-hidden bg-slate/60">
+          <button class="faq-trigger w-full flex items-center justify-between gap-4 px-7 py-5 text-left" aria-expanded="false">
+            <span class="font-display font-600 text-[17px] text-ivory">Do you ship BBQ nationwide?</span>
+            <span class="faq-icon shrink-0 w-8 h-8 rounded-full bg-gold/[.08] border border-gold/20 flex items-center justify-center transition-transform duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            </span>
+          </button>
+          <div class="faq-answer max-h-0 overflow-hidden transition-[max-height] duration-500 ease-in-out">
+            <p class="font-body font-400 text-ash text-[15px] leading-relaxed px-7 pb-6">
+              Nationwide shipping is <strong class="text-ivory font-600">coming soon</strong>. We're working on getting H&amp;B BBQ to your door — slow-smoked and packed to arrive tasting just like it came off the pit. Stay tuned and follow us on social for the announcement.
+            </p>
+          </div>
+        </div>
+
+        <!-- Q7 -->
+        <div class="faq-item border border-line_dark rounded-2xl overflow-hidden bg-slate/60">
+          <button class="faq-trigger w-full flex items-center justify-between gap-4 px-7 py-5 text-left" aria-expanded="false">
+            <span class="font-display font-600 text-[17px] text-ivory">Do you use any sauce or marinades on the meat?</span>
+            <span class="faq-icon shrink-0 w-8 h-8 rounded-full bg-gold/[.08] border border-gold/20 flex items-center justify-center transition-transform duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            </span>
+          </button>
+          <div class="faq-answer max-h-0 overflow-hidden transition-[max-height] duration-500 ease-in-out">
+            <p class="font-body font-400 text-ash text-[15px] leading-relaxed px-7 pb-6">
+              Never. Our meats are seasoned with <strong class="text-ivory font-600">Kosher salt and 16-mesh black pepper only</strong> — nothing more. The smoke does the work. Our H&amp;B BBQ sauce is available on the side if you want it, but the meat speaks for itself.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom CTA -->
+      <div class="text-center mt-14">
+        <p class="font-body font-400 text-ash text-base mb-5">Still have a question? We're happy to help.</p>
+        <a href="tel:+19033554583" class="btn-primary inline-flex items-center gap-2 bg-gold text-slate text-sm font-600 px-8 py-3.5 rounded-full tracking-wide">
+          Call (903) 355-4583
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
   <footer id="footer" class="py-20 lg:py-28 bg-charcoal text-white/70 border-t border-line_dark">
     <div class="max-w-7xl mx-auto px-6 lg:px-10">
 
@@ -746,7 +888,7 @@
         <div class="flex flex-col gap-3">
           <h4 class="font-display font-700 text-sm text-gold tracking-wide">Contact</h4>
           <a href="tel:+19033554583" class="font-body text-sm text-white/50 hover:text-gold transition-colors duration-300">(903) 355-4583</a>
-          <a href="mailto:hbbbqwylie@gmail.com" class="font-body text-sm text-white/50 hover:text-gold transition-colors duration-300">hbbbqwylie@gmail.com</a>
+          <a href="mailto:info@hbbbq.com" class="font-body text-sm text-white/50 hover:text-gold transition-colors duration-300">info@hbbbq.com</a>
         </div>
 
         <!-- Social -->
@@ -943,6 +1085,47 @@
       if (e.key === 'Escape' && !orderModal.classList.contains('pointer-events-none')) {
         closeOrderModal();
       }
+    });
+
+    /* ── 10. FAQ Accordion ── */
+    reveal('.faq-list', { y: 30, stagger: 0 });
+
+    document.querySelectorAll('.faq-trigger').forEach(function(trigger) {
+      trigger.addEventListener('click', function() {
+        var item = this.closest('.faq-item');
+        var answer = item.querySelector('.faq-answer');
+        var icon = item.querySelector('.faq-icon');
+        var isOpen = this.getAttribute('aria-expanded') === 'true';
+
+        /* Close all other open items */
+        document.querySelectorAll('.faq-item').forEach(function(otherItem) {
+          if (otherItem !== item) {
+            var otherAnswer = otherItem.querySelector('.faq-answer');
+            var otherTrigger = otherItem.querySelector('.faq-trigger');
+            var otherIcon = otherItem.querySelector('.faq-icon');
+            otherAnswer.style.maxHeight = '0';
+            otherTrigger.setAttribute('aria-expanded', 'false');
+            otherIcon.style.transform = 'rotate(0deg)';
+            otherItem.classList.remove('border-gold/40');
+            otherItem.classList.add('border-line_dark');
+          }
+        });
+
+        /* Toggle current item */
+        if (isOpen) {
+          answer.style.maxHeight = '0';
+          this.setAttribute('aria-expanded', 'false');
+          icon.style.transform = 'rotate(0deg)';
+          item.classList.remove('border-gold/40');
+          item.classList.add('border-line_dark');
+        } else {
+          answer.style.maxHeight = answer.scrollHeight + 'px';
+          this.setAttribute('aria-expanded', 'true');
+          icon.style.transform = 'rotate(180deg)';
+          item.classList.remove('border-line_dark');
+          item.classList.add('border-gold/40');
+        }
+      });
     });
 
   </script>
