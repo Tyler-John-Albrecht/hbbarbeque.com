@@ -476,6 +476,151 @@
       </div>
     </div>
   </div>
+
+
+  <!-- ═══════════════════════════════════════════════
+       CATERING QUOTE MODAL
+  ═══════════════════════════════════════════════ -->
+  <div id="cateringModal" class="fixed inset-0 z-[100] flex items-center justify-center opacity-0 pointer-events-none" style="transition: opacity 0.4s cubic-bezier(.4,0,.2,1);">
+    <div id="cateringBackdrop" class="absolute inset-0 bg-slate/90" style="backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);"></div>
+    <div id="cateringContainer" class="relative w-[94%] max-w-xl max-h-[90vh] overflow-y-auto bg-slate_m border border-line_dark rounded-3xl shadow-[0_40px_120px_-20px_rgba(0,0,0,.7)] mx-auto translate-y-6" style="transition: transform 0.4s cubic-bezier(.4,0,.2,1); scrollbar-width: thin; scrollbar-color: #2E2E2E #1A1A1A;">
+
+      <!-- Close Button -->
+      <button id="cateringModalClose" class="sticky top-4 float-right mr-4 mt-4 z-10 w-10 h-10 rounded-full bg-white/[.06] hover:bg-gold hover:text-slate flex items-center justify-center text-ivory transition-colors duration-300" aria-label="Close catering modal">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+
+      <!-- Modal Content -->
+      <div class="px-8 sm:px-12 pt-10 pb-12">
+
+        <!-- Header -->
+        <div class="text-center mb-8">
+          <p class="pill text-[11px] font-body font-600 text-gold uppercase tracking-[.2em] mb-3">H&amp;B BBQ Catering</p>
+          <h2 class="font-display font-800 text-3xl sm:text-4xl text-ivory tracking-tight">Get a Quote</h2>
+          <p class="font-body font-400 text-ash text-sm mt-2">Tell us about your event and we'll get back to you within 24 hours.</p>
+          <div class="w-12 h-[2px] bg-gold rounded-full mx-auto mt-5"></div>
+        </div>
+
+        <!-- Success Message (hidden by default) -->
+        <div id="cateringSuccess" class="hidden text-center py-8">
+          <div class="w-16 h-16 rounded-full bg-gold/10 flex items-center justify-center mx-auto mb-5">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <h3 class="font-display font-700 text-2xl text-ivory mb-3">Request Received!</h3>
+          <p class="font-body font-400 text-ash text-base leading-relaxed">Pitmaster Kenyon has received your request! We will be in touch within 24 hours.</p>
+        </div>
+
+        <!-- Form -->
+        <div id="cateringFormWrap">
+
+          <!-- ── Event Details ── -->
+          <div class="mb-7">
+            <p class="font-display font-700 text-sm text-gold uppercase tracking-[.12em] mb-4">Event Details</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div class="flex flex-col gap-1.5">
+                <label for="cateringDate" class="font-body font-500 text-xs text-ivory/60 uppercase tracking-wider">Event Date</label>
+                <input type="date" id="cateringDate" name="cateringDate" class="w-full bg-slate/60 border border-line_dark text-ivory font-body text-sm rounded-xl px-4 py-3 outline-none focus:border-gold/60 focus:ring-1 focus:ring-gold/30 transition-colors duration-200" style="color-scheme: dark;" />
+              </div>
+              <div class="flex flex-col gap-1.5">
+                <label for="guestCount" class="font-body font-500 text-xs text-ivory/60 uppercase tracking-wider">Estimated Guests</label>
+                <input type="number" id="guestCount" name="guestCount" min="1" placeholder="e.g. 75" class="w-full bg-slate/60 border border-line_dark text-ivory font-body text-sm rounded-xl px-4 py-3 outline-none focus:border-gold/60 focus:ring-1 focus:ring-gold/30 transition-colors duration-200 placeholder-ash/40" />
+              </div>
+            </div>
+          </div>
+
+          <!-- ── Service Type ── -->
+          <div class="mb-7">
+            <p class="font-display font-700 text-sm text-gold uppercase tracking-[.12em] mb-4">Service Type</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <label class="catering-radio-label flex items-center gap-3 bg-slate/60 border border-line_dark rounded-xl px-4 py-3.5 cursor-pointer transition-all duration-200 hover:border-gold/40" for="serviceFullService">
+                <input type="radio" id="serviceFullService" name="serviceType" value="Full Service" class="sr-only" />
+                <span class="catering-radio-dot w-4 h-4 rounded-full border-2 border-ash/40 shrink-0 flex items-center justify-center transition-colors duration-200">
+                  <span class="w-2 h-2 rounded-full bg-gold scale-0 transition-transform duration-200 catering-radio-inner"></span>
+                </span>
+                <div>
+                  <span class="font-body font-600 text-ivory text-sm block">Full Service</span>
+                  <span class="font-body font-400 text-ash text-xs">We bring the pit</span>
+                </div>
+              </label>
+              <label class="catering-radio-label flex items-center gap-3 bg-slate/60 border border-line_dark rounded-xl px-4 py-3.5 cursor-pointer transition-all duration-200 hover:border-gold/40" for="serviceDelivery">
+                <input type="radio" id="serviceDelivery" name="serviceType" value="Delivery & Setup" class="sr-only" />
+                <span class="catering-radio-dot w-4 h-4 rounded-full border-2 border-ash/40 shrink-0 flex items-center justify-center transition-colors duration-200">
+                  <span class="w-2 h-2 rounded-full bg-gold scale-0 transition-transform duration-200 catering-radio-inner"></span>
+                </span>
+                <div>
+                  <span class="font-body font-600 text-ivory text-sm block">Delivery &amp; Setup</span>
+                  <span class="font-body font-400 text-ash text-xs">Drop off &amp; arrange</span>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <!-- ── Menu Interest ── -->
+          <div class="mb-7">
+            <p class="font-display font-700 text-sm text-gold uppercase tracking-[.12em] mb-4">Menu Interest</p>
+            <div class="grid grid-cols-2 gap-3">
+              <label class="catering-check-label flex items-center gap-3 bg-slate/60 border border-line_dark rounded-xl px-4 py-3 cursor-pointer transition-all duration-200 hover:border-gold/40" for="menuBrisket">
+                <input type="checkbox" id="menuBrisket" name="menu" value="Brisket" class="sr-only" />
+                <span class="catering-check-box w-4 h-4 rounded border border-ash/40 shrink-0 flex items-center justify-center transition-colors duration-200">
+                  <svg class="w-2.5 h-2.5 text-gold opacity-0 catering-check-icon transition-opacity duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+                </span>
+                <span class="font-body font-500 text-ivory text-sm">Brisket</span>
+              </label>
+              <label class="catering-check-label flex items-center gap-3 bg-slate/60 border border-line_dark rounded-xl px-4 py-3 cursor-pointer transition-all duration-200 hover:border-gold/40" for="menuBeefRibs">
+                <input type="checkbox" id="menuBeefRibs" name="menu" value="Beef Ribs" class="sr-only" />
+                <span class="catering-check-box w-4 h-4 rounded border border-ash/40 shrink-0 flex items-center justify-center transition-colors duration-200">
+                  <svg class="w-2.5 h-2.5 text-gold opacity-0 catering-check-icon transition-opacity duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+                </span>
+                <span class="font-body font-500 text-ivory text-sm">Beef Ribs</span>
+              </label>
+              <label class="catering-check-label flex items-center gap-3 bg-slate/60 border border-line_dark rounded-xl px-4 py-3 cursor-pointer transition-all duration-200 hover:border-gold/40" for="menuSpareRibs">
+                <input type="checkbox" id="menuSpareRibs" name="menu" value="Spare Ribs" class="sr-only" />
+                <span class="catering-check-box w-4 h-4 rounded border border-ash/40 shrink-0 flex items-center justify-center transition-colors duration-200">
+                  <svg class="w-2.5 h-2.5 text-gold opacity-0 catering-check-icon transition-opacity duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+                </span>
+                <span class="font-body font-500 text-ivory text-sm">Spare Ribs</span>
+              </label>
+              <label class="catering-check-label flex items-center gap-3 bg-slate/60 border border-line_dark rounded-xl px-4 py-3 cursor-pointer transition-all duration-200 hover:border-gold/40" for="menuSides">
+                <input type="checkbox" id="menuSides" name="menu" value="Sides" class="sr-only" />
+                <span class="catering-check-box w-4 h-4 rounded border border-ash/40 shrink-0 flex items-center justify-center transition-colors duration-200">
+                  <svg class="w-2.5 h-2.5 text-gold opacity-0 catering-check-icon transition-opacity duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+                </span>
+                <span class="font-body font-500 text-ivory text-sm">Sides</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- ── Contact Info ── -->
+          <div class="mb-8">
+            <p class="font-display font-700 text-sm text-gold uppercase tracking-[.12em] mb-4">Contact Info</p>
+            <div class="flex flex-col gap-4">
+              <div class="flex flex-col gap-1.5">
+                <label for="cateringName" class="font-body font-500 text-xs text-ivory/60 uppercase tracking-wider">Your Name</label>
+                <input type="text" id="cateringName" name="cateringName" placeholder="Jane Smith" class="w-full bg-slate/60 border border-line_dark text-ivory font-body text-sm rounded-xl px-4 py-3 outline-none focus:border-gold/60 focus:ring-1 focus:ring-gold/30 transition-colors duration-200 placeholder-ash/40" />
+              </div>
+              <div class="flex flex-col gap-1.5">
+                <label for="cateringEmail" class="font-body font-500 text-xs text-ivory/60 uppercase tracking-wider">Email Address</label>
+                <input type="email" id="cateringEmail" name="cateringEmail" placeholder="jane@example.com" class="w-full bg-slate/60 border border-line_dark text-ivory font-body text-sm rounded-xl px-4 py-3 outline-none focus:border-gold/60 focus:ring-1 focus:ring-gold/30 transition-colors duration-200 placeholder-ash/40" />
+              </div>
+              <div class="flex flex-col gap-1.5">
+                <label for="cateringPhone" class="font-body font-500 text-xs text-ivory/60 uppercase tracking-wider">Phone Number</label>
+                <input type="tel" id="cateringPhone" name="cateringPhone" placeholder="(555) 000-0000" class="w-full bg-slate/60 border border-line_dark text-ivory font-body text-sm rounded-xl px-4 py-3 outline-none focus:border-gold/60 focus:ring-1 focus:ring-gold/30 transition-colors duration-200 placeholder-ash/40" />
+              </div>
+            </div>
+          </div>
+
+          <!-- ── Submit ── -->
+          <button type="button" id="cateringSubmitBtn" class="btn-primary w-full inline-flex items-center justify-center gap-2 bg-gold text-slate text-sm font-600 px-8 py-4 rounded-full tracking-wide">
+            Submit Quote Request
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </button>
+
+        </div><!-- /cateringFormWrap -->
+      </div>
+    </div>
+  </div>
+
+
   <div class="section-rule max-w-7xl mx-auto"></div>
 
   <section id="story" class="py-28 lg:py-40 bg-charcoal">
@@ -597,7 +742,7 @@
           <p class="font-body font-400 text-ash text-[15px] leading-relaxed flex-1">
             Bold, authentic barbecue brought straight to your event. From private parties and weddings to corporate gatherings, H&amp;B BBQ delivers slow-smoked meats, homemade sides, and true Southern hospitality — built on fire, patience, and passion.
           </p>
-          <a href="#" class="inline-flex items-center gap-2 font-body font-600 text-sm text-gold hover:text-gold_l transition-colors duration-300 mt-auto">
+          <a href="#" onclick="openCateringModal(); return false;" class="inline-flex items-center gap-2 font-body font-600 text-sm text-gold hover:text-gold_l transition-colors duration-300 mt-auto">
             Get a Quote
             <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
           </a>
@@ -1122,9 +1267,157 @@
           answer.style.maxHeight = answer.scrollHeight + 'px';
           this.setAttribute('aria-expanded', 'true');
           icon.style.transform = 'rotate(180deg)';
-          item.classList.remove('border-line_dark');
           item.classList.add('border-gold/40');
+          item.classList.remove('border-line_dark');
         }
+      });
+    });
+
+    /* ── 11. Catering Modal Logic ── */
+    const cateringModal = document.getElementById('cateringModal');
+    const cateringContainer = document.getElementById('cateringContainer');
+    const cateringBackdrop = document.getElementById('cateringBackdrop');
+    const cateringModalClose = document.getElementById('cateringModalClose');
+    const cateringSubmitBtn = document.getElementById('cateringSubmitBtn');
+    const cateringFormWrap = document.getElementById('cateringFormWrap');
+    const cateringSuccess = document.getElementById('cateringSuccess');
+
+    function openCateringModal() {
+      cateringModal.classList.remove('pointer-events-none');
+      document.body.style.overflow = 'hidden';
+      gsap.fromTo(cateringContainer,
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.45, ease: 'power3.out',
+          onStart: function() {
+            cateringModal.style.opacity = '1';
+          }
+        }
+      );
+    }
+
+    function closeCateringModal() {
+      gsap.to(cateringContainer, {
+        opacity: 0, y: 20, duration: 0.35, ease: 'power3.in',
+        onComplete: function() {
+          cateringModal.style.opacity = '0';
+          cateringModal.classList.add('pointer-events-none');
+          document.body.style.overflow = '';
+          /* Reset form state for next open */
+          setTimeout(function() {
+            cateringFormWrap.classList.remove('hidden');
+            cateringSuccess.classList.add('hidden');
+          }, 200);
+        }
+      });
+    }
+
+    cateringModalClose.addEventListener('click', closeCateringModal);
+    cateringBackdrop.addEventListener('click', closeCateringModal);
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && !cateringModal.classList.contains('pointer-events-none')) {
+        closeCateringModal();
+      }
+    });
+
+    /* Custom radio / checkbox visual states */
+    document.querySelectorAll('.catering-radio-label').forEach(function(label) {
+      var radio = label.querySelector('input[type="radio"]');
+      var dot = label.querySelector('.catering-radio-dot');
+      var inner = label.querySelector('.catering-radio-inner');
+      radio.addEventListener('change', function() {
+        /* Reset all */
+        document.querySelectorAll('.catering-radio-label').forEach(function(l) {
+          l.classList.remove('border-gold/60', 'bg-gold/[.06]');
+          l.classList.add('border-line_dark');
+          l.querySelector('.catering-radio-dot').style.borderColor = '';
+          l.querySelector('.catering-radio-inner').style.transform = 'scale(0)';
+        });
+        /* Activate selected */
+        if (radio.checked) {
+          label.classList.add('border-gold/60', 'bg-gold/[.06]');
+          label.classList.remove('border-line_dark');
+          dot.style.borderColor = '#D4AF37';
+          inner.style.transform = 'scale(1)';
+        }
+      });
+    });
+
+    document.querySelectorAll('.catering-check-label').forEach(function(label) {
+      var checkbox = label.querySelector('input[type="checkbox"]');
+      var box = label.querySelector('.catering-check-box');
+      var icon = label.querySelector('.catering-check-icon');
+      checkbox.addEventListener('change', function() {
+        if (checkbox.checked) {
+          label.classList.add('border-gold/60', 'bg-gold/[.06]');
+          label.classList.remove('border-line_dark');
+          box.style.borderColor = '#D4AF37';
+          box.style.background = 'rgba(212,175,55,0.15)';
+          icon.style.opacity = '1';
+        } else {
+          label.classList.remove('border-gold/60', 'bg-gold/[.06]');
+          label.classList.add('border-line_dark');
+          box.style.borderColor = '';
+          box.style.background = '';
+          icon.style.opacity = '0';
+        }
+      });
+    });
+
+    /* ── Formspree — replace YOUR_FORM_ID with your actual Formspree form ID ── */
+    var FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
+
+    /* Form submission */
+    cateringSubmitBtn.addEventListener('click', function() {
+      var date      = document.getElementById('cateringDate').value;
+      var guests    = document.getElementById('guestCount').value;
+      var service   = document.querySelector('input[name="serviceType"]:checked');
+      var menuItems = Array.from(document.querySelectorAll('input[name="menu"]:checked')).map(function(el) { return el.value; });
+      var name      = document.getElementById('cateringName').value.trim();
+      var email     = document.getElementById('cateringEmail').value.trim();
+      var phone     = document.getElementById('cateringPhone').value.trim();
+
+      if (!name || !email || !phone) {
+        alert('Please fill in your name, email, and phone number.');
+        return;
+      }
+
+      var formData = {
+        'Event Date':    date      || 'Not specified',
+        'Guest Count':   guests    || 'Not specified',
+        'Service Type':  service   ? service.value : 'Not specified',
+        'Menu Interest': menuItems.length ? menuItems.join(', ') : 'Not specified',
+        'Name':          name,
+        'Email':         email,
+        'Phone':         phone,
+        '_subject':      'New Catering Quote Request — H&B BBQ'
+      };
+
+      cateringSubmitBtn.disabled = true;
+      cateringSubmitBtn.textContent = 'Sending...';
+
+      fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(formData)
+      })
+      .then(function(response) {
+        if (response.ok) {
+          cateringFormWrap.classList.add('hidden');
+          cateringSuccess.classList.remove('hidden');
+          gsap.fromTo(cateringSuccess,
+            { opacity: 0, y: 10 },
+            { opacity: 1, y: 0, duration: 0.5, ease: 'power3.out' }
+          );
+        } else {
+          alert('Something went wrong. Please call us at (903) 355-4583 to book your catering.');
+          cateringSubmitBtn.disabled = false;
+          cateringSubmitBtn.innerHTML = 'Submit Quote Request <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>';
+        }
+      })
+      .catch(function() {
+        alert('Something went wrong. Please call us at (903) 355-4583 to book your catering.');
+        cateringSubmitBtn.disabled = false;
+        cateringSubmitBtn.innerHTML = 'Submit Quote Request <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>';
       });
     });
 
