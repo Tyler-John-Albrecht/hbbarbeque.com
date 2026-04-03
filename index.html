@@ -609,6 +609,15 @@
             </div>
           </div>
 
+          <!-- ── Extra Comments ── -->
+          <div class="mb-8">
+            <p class="font-display font-700 text-sm text-gold uppercase tracking-[.12em] mb-4">Extra Comments</p>
+            <div class="flex flex-col gap-1.5">
+              <label for="cateringComments" class="font-body font-500 text-xs text-ivory/60 uppercase tracking-wider">Anything else we should know?</label>
+              <textarea id="cateringComments" name="cateringComments" rows="4" placeholder="Venue details, dietary restrictions, special requests, event theme..." class="w-full bg-slate/60 border border-line_dark text-ivory font-body text-sm rounded-xl px-4 py-3 outline-none focus:border-gold/60 focus:ring-1 focus:ring-gold/30 transition-colors duration-200 placeholder-ash/40 resize-none"></textarea>
+            </div>
+          </div>
+
           <!-- ── Submit ── -->
           <button type="button" id="cateringSubmitBtn" class="btn-primary w-full inline-flex items-center justify-center gap-2 bg-gold text-slate text-sm font-600 px-8 py-4 rounded-full tracking-wide">
             Submit Quote Request
@@ -1363,8 +1372,8 @@
       });
     });
 
-    /* ── Formspree — replace YOUR_FORM_ID with your actual Formspree form ID ── */
-    var FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
+    /* ── Formspree endpoint ── */
+    var FORMSPREE_ENDPOINT = 'https://formspree.io/f/mzdkaqro';
 
     /* Form submission */
     cateringSubmitBtn.addEventListener('click', function() {
@@ -1375,6 +1384,7 @@
       var name      = document.getElementById('cateringName').value.trim();
       var email     = document.getElementById('cateringEmail').value.trim();
       var phone     = document.getElementById('cateringPhone').value.trim();
+      var comments  = document.getElementById('cateringComments').value.trim();
 
       if (!name || !email || !phone) {
         alert('Please fill in your name, email, and phone number.');
@@ -1382,14 +1392,15 @@
       }
 
       var formData = {
-        'Event Date':    date      || 'Not specified',
-        'Guest Count':   guests    || 'Not specified',
-        'Service Type':  service   ? service.value : 'Not specified',
-        'Menu Interest': menuItems.length ? menuItems.join(', ') : 'Not specified',
-        'Name':          name,
-        'Email':         email,
-        'Phone':         phone,
-        '_subject':      'New Catering Quote Request — H&B BBQ'
+        'Event Date':      date      || 'Not specified',
+        'Guest Count':     guests    || 'Not specified',
+        'Service Type':    service   ? service.value : 'Not specified',
+        'Menu Interest':   menuItems.length ? menuItems.join(', ') : 'Not specified',
+        'Name':            name,
+        'Email':           email,
+        'Phone':           phone,
+        'Extra Comments':  comments  || 'None',
+        '_subject':        'New Catering Quote Request — H&B BBQ'
       };
 
       cateringSubmitBtn.disabled = true;
